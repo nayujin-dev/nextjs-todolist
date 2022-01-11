@@ -1,5 +1,4 @@
-import '../styles/global.css'
-import firebase from 'firebase/compat/app';
+import firebase from "firebase/compat/app";
 import 'firebase/analytics';
 import 'firebase/firestore';
 import { initializeApp } from "firebase/app";
