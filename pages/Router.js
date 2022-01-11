@@ -1,13 +1,13 @@
 import React from "react";
 import {HashRouter as Router,Route,Switch}from "react-router-dom";
-import Home from "../pages/Home";
-// import Profile from "../routes/Profile";
-import Navigation from "./Navigation";
+import Home from "./posts/Home";
+import Auth from "./posts/Auth"
+
 
 const AppRouter= ({ refreshUser, isLoggedIn, userObj }) => {
     return(
         <Router>
-            {isLoggedIn&&<Navigation userObj={userObj} />}
+            {isLoggedIn }
             <Switch>
                 {isLoggedIn ? (
                     <div
@@ -22,9 +22,6 @@ const AppRouter= ({ refreshUser, isLoggedIn, userObj }) => {
                 >
                     <Route exact path="/" element={<Home/>}>
                         <Home userObj={userObj} />
-                    </Route>
-                    <Route exact path="/Profile" element={<Profile/>}>
-                        <Profile userObj={userObj} refreshUser={refreshUser} />
                     </Route>
                 </div>
                 ) : (

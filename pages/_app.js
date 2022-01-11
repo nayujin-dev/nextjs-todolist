@@ -2,6 +2,7 @@ import '../styles/global.css'
 import firebase from 'firebase/compat/app';
 import 'firebase/analytics';
 import 'firebase/firestore';
+import "firebase/compat/auth";
 import { initializeApp } from "firebase/app";
 import "firebase/compat/firestore";
 import "firebase/compat/storage";
@@ -24,6 +25,7 @@ export default function App({ Component, pageProps }) {
     return <Component {...pageProps} />
   }
 
-  export const firebaseInstance=firebase;
-  export const dbService=firebase.firestore();
-  export const storageService = firebase.storage(); 
+export const firebaseInstance=firebase;
+export const dbService=firebase.firestore();
+export const storageService = firebase.storage(); 
+export const authService = firebase.auth();
