@@ -1,7 +1,7 @@
 import React, {useState, useEffect } from "react";
 import { dbService, storageService } from "../_app";
-import Nweet from "../Nweet";
-import NweetFactory from "../NweetFactory";
+import Nweet from "./Nweet";
+import NweetFactory from "./NweetFactory";
 import App from "./App";
 const Home= ({ userObj }) => {
     

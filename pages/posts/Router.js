@@ -1,7 +1,7 @@
 import React from "react";
 import {HashRouter as Router,Route,Switch}from "react-router-dom";
-import Home from "./posts/Home";
-import Auth from "./posts/Auth"
+import Home from "./Home";
+import Auth from "./Auth"
 
 
 const AppRouter= ({ refreshUser, isLoggedIn, userObj }) => {
