@@ -1,22 +1,37 @@
-import Link from 'next/link'
-import Head from 'next/head'
-import Layout from '../../components/layout'
-
-export default function Home() {
-    return (
-      <Layout>
-      <Head>
-        <title>My todolist</title>
-      </Head>
-        <h1>My todolist</h1>
-        <h2>
-          <Link href="/">
-            <a>Back to main page</a>
-          </Link>
-        </h2>
-      </Layout> 
-    )
+import React, {useState, useEffect } from "react";
+import { dbService, storageService } from "../_app";
+import Nweet from "../Nweet";
+import NweetFactory from "../NweetFactory";
+import App from "./App";
+const Home= ({ userObj }) => {
     
-  }
+    const [nweets, setNweets] = useState([]);
+    
+    useEffect(()=>{
+        dbService.collection("nweets").onSnapshot((snapshot) => {
+            const nweetArray = snapshot.docs.map((doc) => ({
+              id: doc.id,
+              ...doc.data(),
+            }));
+            setNweets(nweetArray);
+          });
+    },[]);
+    
+    return(
+        <div className="container">
+            <NweetFactory userObj={userObj} />
+            <div style={{ marginTop: 30 }}>
+                {nweets.map((nweet) => (
+                    <Nweet
+                        key={nweet.id}
+                        nweetObj={nweet}
+                        isOwner={nweet.creatorId === userObj.uid}
+                        
+                    />
+                ))}
+            </div>
+        </div>
+    );
+};
 
-  //default로 내보내야함!
+export default Home;
