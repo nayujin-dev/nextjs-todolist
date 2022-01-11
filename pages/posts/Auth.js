@@ -2,7 +2,7 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCalendarCheck } from "@fortawesome/free-solid-svg-icons";
 import { authService, firebaseInstance } from "../_app";
-import AuthForm from "../AuthForm";
+import AuthForm from "./AuthForm";
 
 const Auth= () => {
     const onSocialClick=async(event)=>{

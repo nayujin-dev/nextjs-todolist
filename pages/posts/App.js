@@ -1,5 +1,5 @@
 import React, {useState,useEffect} from "react";
-import AppRouter from "../Router";
+import AppRouter from "./Router";
  import { authService } from "../_app";
 
 function App() {
