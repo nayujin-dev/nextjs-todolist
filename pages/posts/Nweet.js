@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { dbService, storageService } from "../_app";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash, faPencilAlt, faCheck } from "@fortawesome/free-solid-svg-icons";
-
+import NweetFactory from "./NweetFactory";
 
 const Nweet = ({ nweetObj, isOwner }) => {
   const [editing, setEditing] = useState(false);
@@ -12,7 +12,6 @@ const Nweet = ({ nweetObj, isOwner }) => {
     const ok = window.confirm("일정을 삭제하시겠습니까?");
     if (ok) {
       await dbService.doc(`nweets/${nweetObj.id}`).delete();
-      // await storageService.refFromURL(nweetObj.attachmentUrl).delete();
     }
   
   };
@@ -25,10 +24,13 @@ const Nweet = ({ nweetObj, isOwner }) => {
     });
     setEditing(false);
   };
-  const onDoneClick = () => {
-    //className.nweet=className.nweet.checked;
+  const onDoneClick = async(event) => {
     setChecked(!checked);
-  
+    event.preventDefault();
+    await dbService.doc(`nweets/${nweetObj.id}`).update({
+      text: newNweet,
+      checked:(!checked)
+    });
   };
   const onChange = (event) => {
     const {
