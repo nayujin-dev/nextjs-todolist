@@ -24,6 +24,7 @@ const NweetFactory = ({ userObj }) => {
       text: nweet,
       createdAt: Date.now(),
       creatorId: userObj.uid,
+      checked: false,
       attachmentUrl,
     };
     await dbService.collection("nweets").add(nweetObj);
@@ -36,20 +37,7 @@ const NweetFactory = ({ userObj }) => {
     } = event;
     setNweet(value);
   };
-  const onFileChange = (event) => {
-    const {
-      target: { files },
-    } = event;
-    const theFile = files[0];
-    const reader = new FileReader();
-    reader.onloadend = (finishedEvent) => {
-      const {
-        currentTarget: { result },
-      } = finishedEvent;
-      setAttachment(result);
-    };
-    reader.readAsDataURL(theFile);
-  };
+ 
   const onClearAttachment = () => setAttachment("");
   return (
     <form onSubmit={onSubmit} className="factoryForm">
@@ -61,6 +49,7 @@ const NweetFactory = ({ userObj }) => {
           type="text"
           placeholder="추가할 일정을 입력하세요"
           maxLength={120}
+          checked="false"
         />
         <input type="submit" value="&rarr;" className="factoryInput__arrow" />
       </div>

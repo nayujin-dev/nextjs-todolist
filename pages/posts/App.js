@@ -5,9 +5,10 @@ import {Switch} from "react-router-dom";
  import Home from "./Home";
  import Auth from "./Auth"
  
-function App({isLoggedIn}) {
+function App() {
   const [init,setInit]=useState(false);
   const [userObj,setUserObj]=useState(null);
+  const [isLoggedIn,setIsLoggedIn]=useState(false);
   useEffect(()=> {
     authService.onAuthStateChanged((user)=> {
       if(user){
@@ -16,6 +17,7 @@ function App({isLoggedIn}) {
           uid: user.uid,
           updateProfile: (args) => user.updateProfile(args),
         });
+        setIsLoggedIn(true);
       } else {
         setUserObj(null);
       }
@@ -31,12 +33,10 @@ function App({isLoggedIn}) {
       updateProfile: (args) => user.updateProfile(args),
     });
   };
-  // const app= ({ refreshUser, isLoggedIn, userObj }) => {
   return (
     <>
       {init ? 
       ( <><div>
-        {isLoggedIn=true}
         {isLoggedIn?(
            <div
            style={{
@@ -62,4 +62,4 @@ function App({isLoggedIn}) {
 };
 
 export default App;
-// export default app;
+
