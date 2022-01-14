@@ -1,7 +1,7 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCalendarCheck } from "@fortawesome/free-solid-svg-icons";
-import { authService, firebaseInstance } from "../_app";
+import { authService, firebaseInstance } from "../../src/fbase";
 import AuthForm from "../../lib/AuthForm";
 
 const Auth= () => {

@@ -1,7 +1,6 @@
 import React, {useState,useEffect} from "react";
-import {Switch} from "react-router-dom";
 //import AppRouter from "./Router";
- import { authService } from "../_app";
+ import { authService } from "../../src/fbase";
  import Home from "../../lib/Home";
  import Auth from "./Auth"
  
