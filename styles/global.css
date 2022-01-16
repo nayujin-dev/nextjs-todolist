@@ -84,9 +84,14 @@ form {
 }
 .commentbtn {
   position: absolute;
-  right: 8px;
-  top:78px;
-  cursor: pointer;
+  right: 0;
+ 
+  /* height: 20px; */
+  /* width: 20px; */
+  padding: 1px 0px;
+  text-align: center;
+ 
+  color: #363636;
 }
 
 .formBtn {
