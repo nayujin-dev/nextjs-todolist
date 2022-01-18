@@ -2,7 +2,7 @@ import React, {useState,useEffect} from "react";
 //import AppRouter from "./Router";
  import { authService } from "../../src/fbase";
  import Home from "../../lib/Home";
- import Auth from "./Auth"
+ import Auth from "./Auth";
 
 function App() {
   const [init,setInit]=useState(false);
@@ -47,7 +47,6 @@ function App() {
            justifyContent: "center",
            }}>
             <Home userObj={userObj} />
-            {/* <Comment userObj={userObj} /> */}
           </div>
         ):(
           <Auth />
