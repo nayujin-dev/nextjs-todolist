@@ -79,10 +79,19 @@ form {
   height: 20%;
   text-align: left;
   padding: 1px 5px;
-  font-size:12px;
+  padding-bottom: 0px;
+  font-size:8px;
   border-radius: 5px;
   background-color: rgb(235, 235, 235);
 }
+.commentbox {
+  height: 100%;
+  text-align: center;
+  font-size:5px;
+  border-radius: 100px;
+  background-color: #99d6f5;
+}
+
 .commentbtn {
   position: absolute;
   right: 0;
@@ -134,6 +143,7 @@ form {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-top: 10px;
   width: 100%;
   color: black;
 }
@@ -144,7 +154,7 @@ form {
   align-items: center;
   flex-wrap: wrap;
   position: relative;
-  margin-bottom: 20px;
+  margin-bottom: 5px;
   width: 100%;
 }
 
