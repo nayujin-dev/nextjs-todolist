@@ -11,6 +11,7 @@ body {
 * {
   box-sizing: border-box;
 }
+@import '~antd/dist/antd.css';
 
 a {
   color: #04aaff;
@@ -74,7 +75,7 @@ form {
   
 }
 .comment {
-  width: 94%;
+  width: 86%;
   height: 20%;
   text-align: left;
   padding: 1px 5px;
@@ -85,13 +86,16 @@ form {
 .commentbtn {
   position: absolute;
   right: 0;
- 
+  height: 100%;
+  background-color: #008fd6;
   /* height: 20px; */
   /* width: 20px; */
   padding: 1px 0px;
   text-align: center;
+  font-size:10px;
+  border-radius: 5px;
  
-  color: #363636;
+  color: #ffffff;
 }
 
 .formBtn {
